@@ -12,9 +12,10 @@ public class EmployeeRepository : IEmployeeRepository
         _appDbContext.SaveChanges();
     }
 
-    public List<Employee> Get()
+    public List<Employee> Get(int pageNumber, int pageQuantity)
     {
-        return _appDbContext.Employees.ToList();
+        return _appDbContext.Employees.Skip(pageNumber * pageQuantity).Take(pageQuantity).ToList();
+        
     }
     
     public Employee? Get(int id)
