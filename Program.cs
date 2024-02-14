@@ -1,7 +1,14 @@
+using WebAPI.Infra;
+using WebAPI.Models;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
 
 var app = builder.Build();
 
@@ -13,5 +20,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.Run();
+app.UseRouting();
 
+app.UseAuthorization();
+
+app.MapControllers(); 
+
+app.Run();
