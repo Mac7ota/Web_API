@@ -37,3 +37,11 @@ C:\Users\BMI 02\Desktop\WebAPI\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Re
 C:\Users\BMI 02\Desktop\WebAPI\bin\Debug\net8.0\Npgsql.dll
 C:\Users\BMI 02\Desktop\WebAPI\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 C:\Users\BMI 02\Desktop\WebAPI\obj\Debug\net8.0\WebAPI.sourcelink.json
+C:\Users\BMI 02\Desktop\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\BMI 02\Desktop\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\BMI 02\Desktop\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\BMI 02\Desktop\WebAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\BMI 02\Desktop\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\BMI 02\Desktop\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\BMI 02\Desktop\WebAPI\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\BMI 02\Desktop\WebAPI\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

@@ -12,6 +12,9 @@ public class Employee
     public int Age { get; private set; }
     public string? Photo { get; private set; }
 
+    public Employee()
+    {
+    }
     public Employee(string name, int age, string photo)
     {
         this.Name = name ?? throw new ArgumentException(nameof(name));

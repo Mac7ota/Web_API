@@ -16,4 +16,9 @@ public class EmployeeRepository : IEmployeeRepository
     {
         return _appDbContext.Employees.ToList();
     }
+    
+    public Employee? Get(int id)
+    {
+        return _appDbContext.Employees.Find(id);
+    }
 }

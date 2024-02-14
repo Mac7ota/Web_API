@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Models;
 using WebAPI.ViewModel;
@@ -15,18 +16,41 @@ public class EmployeeController : ControllerBase
         _employeeRepository = employeeRepository ?? throw new ArgumentNullException(nameof(employeeRepository));    
     }
     
+    [Authorize]
     [HttpPost]
-    public IActionResult Add(EmployeeViewModel employeeViewModel)
+    public IActionResult Add([FromForm]EmployeeViewModel employeeViewModel)
     {
-        var employee = new Employee(employeeViewModel.Name, employeeViewModel.Age, null);
+        var filePath = Path.Combine("Storage",employeeViewModel.Photo.FileName);
+        
+        using (var fileStream = new FileStream(filePath, FileMode.Create))
+        {
+            employeeViewModel.Photo.CopyTo(fileStream);
+        }
+        
+        var employee = new Employee(employeeViewModel.Name, employeeViewModel.Age, filePath);
         _employeeRepository.Add(employee);
         return Ok(employee);
     }
     
+    [Authorize]
+    [HttpPost]
+    [Route("DownloadPhoto/{id}")]
+    public IActionResult DownloadPhoto(int id)
+    {
+       var employee = _employeeRepository.Get(id);
+       
+       var dataBytes = System.IO.File.ReadAllBytes(employee.Photo);
+       
+       return File(dataBytes, "image/jpeg");
+    }
+    
+    [Authorize]
     [HttpGet]
     public IActionResult Get()
     {
         var employees = _employeeRepository.Get();
         return Ok(employees);
     }
+    
+    
 }
