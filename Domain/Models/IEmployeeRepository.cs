@@ -1,10 +1,12 @@
+using WebAPI.Domain.DTOs;
+
 namespace WebAPI.Models;
 
 public interface IEmployeeRepository
 {
     void Add(Employee employee);
 
-    List<Employee> Get(int pageNumber,int pageQuantity);
+    List<EmployeeDTO> Get(int pageNumber,int pageQuantity);
     
     Employee? Get(int id);
 }
